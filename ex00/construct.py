@@ -1,15 +1,16 @@
 import sys
 import os
 
-def main () -> None:
-    is_virtual_env: bool = sys.prefix != sys.base_prefix or "VIRTUAL_ENV" in os.environ
-    
+
+def main() -> None:
+    is_virtual_env = (sys.prefix != sys.base_prefix
+                      or "VIRTUAL_ENV" in os.environ)
 
     if not is_virtual_env:
         print("LABORATORY STATUS: You are working in the open")
         print()
         print(f"Current Python: {sys.executable}")
-        print(f"Virtual Environment: None detected")
+        print("Virtual Environment: None detected")
         print()
         print("WARNING: You are in the global environment!")
         print("Every reagent you install here leaks into the whole system.")
@@ -36,6 +37,7 @@ def main () -> None:
         py_version = f"python{sys.version_info.major}.{sys.version_info.minor}"
         site_packages = f"{sys.prefix}/lib/{py_version}/site-packages"
         print(site_packages)
-        
+
+
 if __name__ == "__main__":
     main()
