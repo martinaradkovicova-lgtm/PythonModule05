@@ -10,7 +10,6 @@ except ImportError:
 
 
 def main() -> None:
-    
     load_dotenv()
 
     print("ORACLE STATUS: Consulting the configuration...")
